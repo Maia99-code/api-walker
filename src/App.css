@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown-menu-starwars {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dropdown-menu-starwars form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.dropdown-menu-starwars label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.dropdown-menu-starwars select,
+.dropdown-menu-starwars input,
+.dropdown-menu-starwars button {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dropdown-menu-starwars button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown-menu-starwars button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+.resource-display {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.resource-display img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.resource-display p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.resource-display h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.resource-display ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resource-display li {
+  margin-bottom: 10px;
+}
+
+.resource-display li strong {
+  font-weight: bold;
 }

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css';
+import DropdownMenu from './components/DropdownMenu';
+import StarWarsResourceDisplay from './components/StarWarsResourceDisplay';
 
-function App() {
+const App = () => {
+  const [resourceData, setResourceData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const fetchResource = async (resourceType, id) => {
+    try {
+      const response = await axios.get(`https://swapi.dev/api/${resourceType}/${id}`);
+      setResourceData({ [resourceType]: response.data });
+      setErrorMessage('');
+    } catch (error) {
+      console.error('Error fetching resource:', error);
+      setErrorMessage("These aren't the droids you're looking for.");
+      setResourceData(null);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Star Wars API Walker</h1>
+      <DropdownMenu onSelectResource={fetchResource} />
+      <StarWarsResourceDisplay resourceData={resourceData} errorMessage={errorMessage} />
     </div>
   );
-}
+};
 
 export default App;
